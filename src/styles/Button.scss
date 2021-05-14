@@ -1,0 +1,72 @@
+.button {
+  padding: 0 15px;
+
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #49a8d8;
+  border-radius: 8px;
+
+  color: #f5f5f4;
+  font-size: 14px;
+  font-weight: bold;
+
+  border: none;
+  outline: none;
+
+  box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    fill: #f5f5f4;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    background-color: #c6d2d8;
+    box-shadow: none;
+
+    svg {
+      fill: #919495;
+    }
+  }
+
+  &--success {
+    pointer-events: none;
+
+    background-color: #88ff44;
+  }
+
+  &--error {
+    pointer-events: none;
+
+    background-color: #fa5e27;
+  }
+
+  &--loading {
+    pointer-events: none;
+
+    & svg {
+      animation: spin 2s infinite;
+    }
+  }
+
+  &:hover {
+    background-color: #66bbe5;
+    cursor: pointer;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

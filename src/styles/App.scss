@@ -1,0 +1,17 @@
+.container {
+  height: 100vh;
+  padding: 50px;
+
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  row-gap: 50px;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 0.7fr 0.3fr;
+  column-gap: 70px;
+}
+
+.main {
+}

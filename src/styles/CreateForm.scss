@@ -1,0 +1,9 @@
+.create-form {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  & .button {
+    width: 300px;
+  }
+}
