@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { postPhonenumber } from "../api/phonebook";
+import { addPhonenumber } from "../redux/reducers/phonenumbers";
 import "../styles/CreateForm.scss";
 import Button from "./Button";
 import Input from "./Input";
@@ -11,6 +13,10 @@ const CreateForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const { phonenumbers } = useSelector((state) => state.phonenumbers);
 
   const inputHandler = ({ target }) => {
     const { name, value } = target;
@@ -43,12 +49,23 @@ const CreateForm = () => {
       phonenumber: person.number.split(" ").join(""),
     };
 
-    //TODO: Проверка на дубликаты через redux
+    if (
+      phonenumbers.filter((num) => num.phonenumber === body.phonenumber).length
+    ) {
+      setIsLoading(false);
+      alert("Этот номер уже записан");
+      setIsError(true);
+      setTimeout(() => {
+        setIsError(false);
+      }, 1000);
+      return;
+    }
 
     const response = await postPhonenumber(body);
+    setIsLoading(false);
 
     if (response.status === 200) {
-      /* setToRedux from response.data*/
+      dispatch(addPhonenumber(response.data));
 
       setIsSuccess(true);
 
@@ -64,8 +81,6 @@ const CreateForm = () => {
         setIsError(false);
       }, 1000);
     }
-
-    setIsLoading(false);
   };
 
   return (

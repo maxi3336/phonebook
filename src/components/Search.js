@@ -2,15 +2,26 @@ import "../styles/Search.scss";
 
 import Input from "./Input";
 import { ReactComponent as SearchIcon } from "../assets/icons/search.svg";
+import { setPhonenumbers } from "../redux/reducers/phonenumbers";
+import { useDispatch } from "react-redux";
+import { getPhonenumbers } from "../api/phonebook";
 
 const Search = () => {
+  const dispatch = useDispatch();
+
+  const searchHandlerBackend = async ({ target }) => {
+    const { value } = target;
+    const phonenumbers = await getPhonenumbers(value);
+    dispatch(setPhonenumbers(phonenumbers.reverse()));
+  };
+
   return (
     <div className="search">
-      <Input placeholder="Поиск" Icon={SearchIcon} />
-      <div className="search__checkbox">
-        <input type="checkbox" id="from-back" />
-        <label htmlFor="from-back">Через бэкенд</label>
-      </div>
+      <Input
+        placeholder="Поиск"
+        Icon={SearchIcon}
+        onChange={searchHandlerBackend}
+      />
     </div>
   );
 };

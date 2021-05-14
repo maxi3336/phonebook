@@ -3,16 +3,23 @@ import "../../styles/Modals.scss";
 import Button from "../Button";
 import { Portal } from "react-portal";
 import { deletePhonenumber } from "../../api/phonebook";
+import { deletePhonenumber as deleteFromRedux } from "../../redux/reducers/phonenumbers";
 import { useState } from "react";
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
+import { useDispatch } from "react-redux";
 
 export const DeleteModal = ({ phonenumber, close }) => {
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const dispatch = useDispatch();
+
   const deleteHandler = async () => {
     setIsDeleting(true);
     const response = await deletePhonenumber(phonenumber._id);
-    if (response.status === 200) close();
+    if (response.status === 200) {
+      dispatch(deleteFromRedux(response.data._id));
+      close();
+    }
   };
 
   return (

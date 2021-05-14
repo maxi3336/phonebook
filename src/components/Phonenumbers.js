@@ -1,26 +1,25 @@
-import { useEffect, useState } from "react";
 import Scrollbars from "react-custom-scrollbars";
-import { getPhonenumbers } from "../api/phonebook";
+import { useSelector } from "react-redux";
 import "../styles/Phonenumbers.scss";
 import PhonenumberItem from "./PhonenumberItem";
 
 const Phonenumbers = () => {
-  const [phonenumbers, setPhonenumbers] = useState();
-
-  useEffect(() => {
-    const updatePhonenumbers = async () => {
-      const _phonenumbers = await getPhonenumbers();
-      setPhonenumbers(_phonenumbers);
-    };
-
-    !phonenumbers && updatePhonenumbers();
-  }, [phonenumbers]);
+  const { phonenumbers, searchedPhonenumbers } = useSelector(
+    (state) => state.phonenumbers
+  );
 
   return (
     <div className="phonenumbers-container">
       <Scrollbars>
         <div className="phonenumbers">
-          {phonenumbers
+          {phonenumbers && !searchedPhonenumbers
+            ? phonenumbers.map((phonenumber) => (
+                <PhonenumberItem
+                  key={phonenumber._id}
+                  phonenumber={phonenumber}
+                />
+              ))
+            : searchedPhonenumbers
             ? phonenumbers.map((phonenumber) => (
                 <PhonenumberItem
                   key={phonenumber._id}

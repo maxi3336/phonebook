@@ -6,6 +6,8 @@ import Button from "../Button";
 import Input from "../Input";
 import { useState } from "react";
 import { putPhonenumber } from "../../api/phonebook";
+import { updatePhonenumber } from "../../redux/reducers/phonenumbers";
+import { useDispatch, useSelector } from "react-redux";
 
 export const EditModal = ({ phonenumber, close }) => {
   const [currentPhonenumber, setCurrentPhonenumber] = useState(
@@ -18,6 +20,10 @@ export const EditModal = ({ phonenumber, close }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const { phonenumbers } = useSelector((state) => state.phonenumbers);
 
   const inputHandler = ({ target }) => {
     const { name, value } = target;
@@ -52,10 +58,25 @@ export const EditModal = ({ phonenumber, close }) => {
       phonenumber: currentPhonenumber.phonenumber.split(" ").join(""),
     };
 
+    if (
+      body.phonenumber !== phonenumber.phonenumber &&
+      phonenumbers.filter((num) => num.phonenumber === body.phonenumber).length
+    ) {
+      setIsLoading(false);
+      alert("Этот номер уже записан");
+      setIsError(true);
+      setTimeout(() => {
+        setIsError(false);
+      }, 1000);
+      return;
+    }
+
     const response = await putPhonenumber(phonenumber._id, body);
     setIsLoading(false);
 
     if (response.status === 200) {
+      dispatch(updatePhonenumber(response.data));
+
       setIsSuccess(true);
 
       setTimeout(() => {
