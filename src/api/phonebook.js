@@ -6,8 +6,7 @@ export const getPhonenumbers = async () => {
   return data;
 };
 
-export const postPhonenumber = async (name, number) => {
-  const body = { name, phonenumber: number };
+export const postPhonenumber = async (body) => {
   const response = await axios.post(PHONENUMBERS, body);
 
   return response;

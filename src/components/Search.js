@@ -9,7 +9,7 @@ const Search = () => {
       <Input placeholder="Поиск" Icon={SearchIcon} />
       <div className="search__checkbox">
         <input type="checkbox" id="from-back" />
-        <label for="from-back">Через бэкенд</label>
+        <label htmlFor="from-back">Через бэкенд</label>
       </div>
     </div>
   );
