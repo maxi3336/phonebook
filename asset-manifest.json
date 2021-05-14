@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/phonebook/static/css/main.68d90b8b.chunk.css",
+    "main.js": "/phonebook/static/js/main.83bb5e95.chunk.js",
+    "main.js.map": "/phonebook/static/js/main.83bb5e95.chunk.js.map",
+    "runtime-main.js": "/phonebook/static/js/runtime-main.aa4b667e.js",
+    "runtime-main.js.map": "/phonebook/static/js/runtime-main.aa4b667e.js.map",
+    "static/js/2.c05ec982.chunk.js": "/phonebook/static/js/2.c05ec982.chunk.js",
+    "static/js/2.c05ec982.chunk.js.map": "/phonebook/static/js/2.c05ec982.chunk.js.map",
+    "index.html": "/phonebook/index.html",
+    "static/css/main.68d90b8b.chunk.css.map": "/phonebook/static/css/main.68d90b8b.chunk.css.map",
+    "static/js/2.c05ec982.chunk.js.LICENSE.txt": "/phonebook/static/js/2.c05ec982.chunk.js.LICENSE.txt",
+    "static/media/_root.css": "/phonebook/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/close.da5c4222.svg": "/phonebook/static/media/close.da5c4222.svg",
+    "static/media/delete.e4efcb06.svg": "/phonebook/static/media/delete.e4efcb06.svg",
+    "static/media/edit.2fa16508.svg": "/phonebook/static/media/edit.2fa16508.svg",
+    "static/media/error.e597a708.svg": "/phonebook/static/media/error.e597a708.svg",
+    "static/media/loading.e324c328.svg": "/phonebook/static/media/loading.e324c328.svg",
+    "static/media/search.28b0ad10.svg": "/phonebook/static/media/search.28b0ad10.svg",
+    "static/media/success.6b5be2c6.svg": "/phonebook/static/media/success.6b5be2c6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aa4b667e.js",
+    "static/js/2.c05ec982.chunk.js",
+    "static/css/main.68d90b8b.chunk.css",
+    "static/js/main.83bb5e95.chunk.js"
+  ]
+}
