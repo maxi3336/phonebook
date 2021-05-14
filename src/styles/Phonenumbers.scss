@@ -1,0 +1,12 @@
+.phonenumbers-container {
+  height: 100%;
+}
+
+.phonenumbers {
+  display: flex;
+
+  gap: 30px;
+  flex-wrap: wrap;
+
+  padding-right: 20px;
+}

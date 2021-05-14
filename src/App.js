@@ -2,6 +2,7 @@ import "./styles/App.scss";
 
 import CreateForm from "./components/CreateForm";
 import Search from "./components/Search";
+import Phonenumbers from "./components/Phonenumbers";
 
 const App = () => {
   return (
@@ -10,7 +11,9 @@ const App = () => {
         <CreateForm />
         <Search />
       </header>
-      <main className="main"></main>
+      <main className="main">
+        <Phonenumbers />
+      </main>
     </div>
   );
 };

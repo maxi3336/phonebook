@@ -43,7 +43,7 @@ const CreateForm = () => {
       phonenumber: person.number.split(" ").join(""),
     };
 
-    console.log(body);
+    //TODO: Проверка на дубликаты через redux
 
     const response = await postPhonenumber(body);
 
