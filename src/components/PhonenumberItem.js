@@ -36,6 +36,7 @@ const PhonenumberItem = ({ phonenumber }) => {
           <DeleteIcon />
         </div>
       </div>
+
       {isDeleting ? (
         <DeleteModal
           phonenumber={phonenumber}

@@ -31,7 +31,6 @@ const CreateForm = () => {
         setError((prev) => ({ ...prev, [name]: true }));
 
       setNumber(_number);
-      setPerson((prev) => ({ ...prev, [name]: value }));
     }
 
     if (!value) setError((prev) => ({ ...prev, [name]: true }));
